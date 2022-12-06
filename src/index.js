@@ -10,6 +10,7 @@ const VARIATION_NAME = 'book-query-loop-variation';
 registerBlockVariation('core/query', {
 	name: VARIATION_NAME,
 	title: 'Book List',
+	icon: 'book',
 	description: 'Displays a list of books.',
 	isActive: [ 'namespace' ],
 	attributes: {
@@ -20,14 +21,31 @@ registerBlockVariation('core/query', {
 			offset: 0,
 			bookAuthor: ''
 		},
+		displayLayout: {
+			type: 'flex',
+			columns: 3
+		}
 	},
-	allowedControls: [],
+	allowedControls: [
+		'order',
+		'taxQuery',
+		'search'
+	],
 	innerBlocks: [
 		[
 			'core/post-template',
 			{},
 			[
-				[ 'core/post-featured-image' ]
+				[
+					'core/post-featured-image',
+					{
+						width: "100%",
+						height: "300px"
+					}
+				],
+				[
+					'core/post-title'
+				]
 			],
 		],
 		[ 'core/query-pagination' ],

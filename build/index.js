@@ -151,6 +151,7 @@ const VARIATION_NAME = 'book-query-loop-variation';
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockVariation)('core/query', {
   name: VARIATION_NAME,
   title: 'Book List',
+  icon: 'book',
   description: 'Displays a list of books.',
   isActive: ['namespace'],
   attributes: {
@@ -160,10 +161,17 @@ const VARIATION_NAME = 'book-query-loop-variation';
       perPage: 6,
       offset: 0,
       bookAuthor: ''
+    },
+    displayLayout: {
+      type: 'flex',
+      columns: 3
     }
   },
-  allowedControls: [],
-  innerBlocks: [['core/post-template', {}, [['core/post-featured-image']]], ['core/query-pagination'], ['core/query-no-results']]
+  allowedControls: ['order', 'taxQuery', 'search'],
+  innerBlocks: [['core/post-template', {}, [['core/post-featured-image', {
+    width: "100%",
+    height: "300px"
+  }], ['core/post-title']]], ['core/query-pagination'], ['core/query-no-results']]
 });
 const isBookVariation = props => {
   const {
